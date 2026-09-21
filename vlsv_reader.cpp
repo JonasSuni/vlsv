@@ -18,6 +18,7 @@
  */
 
 #include <cstdlib>
+#include <csignal>
 #include <iostream>
 #include <string.h>
 
@@ -228,6 +229,9 @@ namespace vlsv {
       // Read footer XML tree:
       filein.seekg(footerOffset);
       if (filein.tellg() != (int)footerOffset) {
+         cerr << "filein.tellg() is " << filein.tellg() << endl;
+         cerr << "(int)footerOffset is " << (int)footerOffset << endl;
+         std::raise(SIGTERM);
          lastErrorCode = error::READ_NO_FOOTER;
          success = false;
       }
