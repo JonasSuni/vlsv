@@ -521,9 +521,9 @@ namespace vlsv {
 
          // Check that we got everything we requested:
          if(readSize>0) {
-            int64_t bytesReceived;
+            int bytesReceived;
             MPI_Get_count(&status,MPI_BYTE,&bytesReceived);
-            if (bytesReceived != (int64_t)readSize) {
+            if (bytesReceived != (int)readSize) {
                stringstream ss;
                ss << "ERROR in vlsv::ParallelReader! I only got " << bytesReceived << "/" << readSize;
                ss << " bytes in " << __FILE__ << ":" << __LINE__ << endl;
