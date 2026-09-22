@@ -227,7 +227,7 @@ namespace vlsv {
 
       // Read footer XML tree:
       filein.seekg(footerOffset);
-      if (filein.tellg() != (int)footerOffset) {
+      if (filein.tellg() != (int64_t)footerOffset) {
          lastErrorCode = error::READ_NO_FOOTER;
          success = false;
       }
